@@ -35,9 +35,8 @@ def predict():
         return jsonify({"hello":"World"}) 
     # POST request
     if request.method == 'POST':
-        data = request.get_json()  # parse as JSON
-        user_content = data["data"]
-        result = sentiment_predict(user_content)
+        data = request.form['text']  # parse as JSON
+        result = sentiment_predict(data)
         return jsonify({'sentiment': result}),200
 
 
